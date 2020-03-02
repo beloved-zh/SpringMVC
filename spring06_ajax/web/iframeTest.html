@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        
+        function go() {
+            var url = document.getElementById("url").value;
+            document.getElementById("iframe1").src="https://"+url;
+        }
+        
+    </script>
+</head>
+<body>
+<div>
+    <p>请输入地址：</p>
+    <p>
+        <input type="text" id="url" value="www.baidu.com"/>
+        <input type="button" value="提交" onclick="go()"/>
+    </p>
+</div>
+<div>
+    <iframe id="iframe1" style="width: 100%;height: 500px"/>
+</div>
+
+</body>
+</html>
