@@ -1,0 +1,101 @@
+-- 创建科目表
+drop table subjects;
+create table subjects
+(
+    jid number(11) primary key,
+    sub varchar2(100) null
+);
+insert into subjects (jid, sub) values (1, 'HTML');
+insert into subjects (jid, sub) values (2, 'JAVA');
+insert into subjects (jid, sub) values (3, 'JAVASCRIPT');
+insert into subjects (jid, sub) values (4, 'MYSQL');
+
+-- 创建学生表
+drop table students;
+create table students
+(
+    sid  number(11) primary key,
+    name varchar2(100) null
+);
+
+insert into students (sid, name) values (1, '鼠一');
+insert into students (sid, name) values (2, '牛二');
+insert into students (sid, name) values (3, '张三');
+insert into students (sid, name) values (4, '李四');
+insert into students (sid, name) values (5, '王五');
+insert into students (sid, name) values (6, '赵六');
+insert into students (sid, name) values (7, '钱七');
+insert into students (sid, name) values (8, '老八');
+insert into students (sid, name) values (9, '猴九');
+
+-- 创建成绩表
+drop table scores;
+create table scores
+(
+    cid   number(11) primary key,
+    score number        null,
+    jid   number(11) references subjects (jid),
+    sid   number(11) references students (sid)
+);
+
+insert into scores (cid, score, jid, sid) values (1, 77, 1, 1);
+insert into scores (cid, score, jid, sid) values (2, 86, 2, 1);
+insert into scores (cid, score, jid, sid) values (3, 65, 1, 2);
+insert into scores (cid, score, jid, sid) values (4, null, 2, 2);
+insert into scores (cid, score, jid, sid) values (5, 91, 1, 3);
+insert into scores (cid, score, jid, sid) values (6, null, 2, 3);
+insert into scores (cid, score, jid, sid) values (7, 95, 1, 4);
+insert into scores (cid, score, jid, sid) values (8, 64, 2, 4);
+insert into scores (cid, score, jid, sid) values (9, 77, 1, 5);
+insert into scores (cid, score, jid, sid) values (10, 88, 2, 5);
+insert into scores (cid, score, jid, sid) values (11, 82, 1, 6);
+insert into scores (cid, score, jid, sid) values (12, 79, 2, 6);
+insert into scores (cid, score, jid, sid) values (13, null, 1, 7);
+insert into scores (cid, score, jid, sid) values (14, 89, 2, 7);
+insert into scores (cid, score, jid, sid) values (15, 85, 1, 8);
+insert into scores (cid, score, jid, sid) values (16, 64, 2, 8);
+insert into scores (cid, score, jid, sid) values (17, null, 1, 9);
+insert into scores (cid, score, jid, sid) values (18, 84, 2, 9);
+
+-- 查询“李四”同学的分数大于80 分的考试成绩记录？
+select j.sub,c.score 
+from scores c,subjects j
+where c.jid = j.jid and c.score > 80 
+and c.sid = (select sid from students where name = '李四');
+
+-- 查询学号在王五同学前面的学员信息
+select *
+from students
+where sid < (select sid from students where name = '王五');
+
+-- 查询所有学员的HTML成绩，如果没有成绩显示为null
+select c.sid,j.sub,c.score
+from scores c,subjects j
+where c.jid = j.jid and j.sub = 'HTML';
+
+select s.name,a.sub,a.score
+from 
+(select c.sid,j.sub,c.score
+from scores c,subjects j
+where c.jid = j.jid and j.sub = 'HTML' and c.score is not null
+) a left outer join students s
+on s.sid = a.sid;
+
+
+-- 查询学号为1和3的学员信息
+select *
+from students
+where sid in(1,3);
+
+-- 查找JAVA分数大于85分的学员姓名
+select s.name
+from scores c,subjects j,students s
+where s.sid = c.sid and c.jid = j.jid
+and j.sub = 'JAVA' and c.score > 85;
+
+-- 查找存在分数的学员信息
+exists (select s.score from scores s);
+
+select c.score
+from students s,scores c
+where s.sid = c.sid and exists (select s.score from scores s);
