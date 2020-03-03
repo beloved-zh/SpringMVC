@@ -15,6 +15,7 @@
         <module>spring04_controller</module>
         <module>spring05_json</module>
         <module>spring06_ajax</module>
+        <module>spring07_Interceptor</module>
     </modules>
 
     <dependencies>

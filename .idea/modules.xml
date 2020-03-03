@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/spring04_controller/spring04_controller.iml" filepath="$PROJECT_DIR$/spring04_controller/spring04_controller.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring05_json/spring05_json.iml" filepath="$PROJECT_DIR$/spring05_json/spring05_json.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring06_ajax/spring06_ajax.iml" filepath="$PROJECT_DIR$/spring06_ajax/spring06_ajax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring07_Interceptor/spring07_Interceptor.iml" filepath="$PROJECT_DIR$/spring07_Interceptor/spring07_Interceptor.iml" />
     </modules>
   </component>
 </project>

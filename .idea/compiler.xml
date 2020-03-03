@@ -11,11 +11,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring04_controller" />
-        <module name="spring01_servlet" />
-        <module name="spring05_json" />
-        <module name="spring06_ajax" />
         <module name="spring02_hellomvc" />
+        <module name="spring05_json" />
+        <module name="spring07_Interceptor" />
+        <module name="spring04_controller" />
+        <module name="spring06_ajax" />
+        <module name="spring01_servlet" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +26,7 @@
       <module name="spring04_controller" target="1.5" />
       <module name="spring05_json" target="1.5" />
       <module name="spring06_ajax" target="1.5" />
+      <module name="spring07_Interceptor" target="1.5" />
       <module name="SpringMVC" target="1.5" />
     </bytecodeTargetLevel>
   </component>
