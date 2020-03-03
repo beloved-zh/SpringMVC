@@ -15,6 +15,7 @@
         <module name="spring05_json" />
         <module name="spring07_Interceptor" />
         <module name="spring04_controller" />
+        <module name="spring09_mail" />
         <module name="spring06_ajax" />
         <module name="spring01_servlet" />
         <module name="spring08_file" />
@@ -29,6 +30,7 @@
       <module name="spring06_ajax" target="1.5" />
       <module name="spring07_Interceptor" target="1.5" />
       <module name="spring08_file" target="1.5" />
+      <module name="spring09_mail" target="1.5" />
       <module name="SpringMVC" target="1.5" />
     </bytecodeTargetLevel>
   </component>
